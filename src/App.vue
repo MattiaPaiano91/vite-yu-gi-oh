@@ -24,17 +24,11 @@ export default {
         ritardaPagina() {
         setTimeout(() => {
             this.showPage();
-        }, 3000);}
+        }, 200);}
     },
      created() {
           axios
-            .get(this.yugiCards.baseUrl, {
-                params: {
-                        
-                    }    
-            }
-            )
-            
+            .get(this.yugiCards.baseUrl)
             .then((response) => {
                 console.log(response);
                 this.yugiCards.cards = response.data.data;
@@ -43,6 +37,7 @@ export default {
             })
         
     },
+            
     
 }
 </script>
