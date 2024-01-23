@@ -28,7 +28,13 @@ export default {
     },
      created() {
           axios
-            .get(this.yugiCards.baseUrl)
+            .get(this.yugiCards.baseUrl, {
+                params: {
+                        
+                    }    
+            }
+            )
+            
             .then((response) => {
                 console.log(response);
                 this.yugiCards.cards = response.data.data;
@@ -42,9 +48,9 @@ export default {
 </script>
 
 <template>
-    <div class="container">
+    <div class="container-fluid">
         <div v-if="loadingElement == false" class="preLoading-container">
-            <img src="../public/img/640px-Yu-Gi-Oh!_(Logo).jpg" alt="">
+            <img src="/img/640px-Yu-Gi-Oh!_(Logo).jpg" alt="">
             <p>Caricamento in corso...</p>
         </div>
         <div v-else>
